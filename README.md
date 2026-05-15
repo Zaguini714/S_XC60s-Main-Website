@@ -1,0 +1,27 @@
+# SXC60S
+
+SXC60S is a cinematic Volvo media brand built around modern Volvo culture, photography, rollers, drone footage, meets, and builds.
+
+This repository contains a static website that can be hosted directly on GitHub Pages.
+
+## What is included
+
+- `index.html` - the full SXC60S page
+- `styles.css` - responsive styling and cinematic visual treatment
+- `assets/` - local demo vehicle images
+- `CREDITS.md` - image source and license notes
+
+## Publish with GitHub Pages
+
+1. Create a new GitHub repository.
+2. Upload these files to the repository root.
+3. In GitHub, open **Settings** > **Pages**.
+4. Under **Build and deployment**, choose **Deploy from a branch**.
+5. Select the `main` branch and `/ (root)`.
+6. Save. GitHub will publish the site after a short build.
+
+## Before launch
+
+- Replace demo images in `assets/` with original SXC60S photos or video stills.
+- Update the social links in `index.html` to the real SXC60S Instagram, YouTube, TikTok, and Facebook URLs.
+- Update event text when meet dates are confirmed.
