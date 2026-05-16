@@ -1,12 +1,12 @@
-# SXC60S
+# S_XC60s
 
-SXC60S is a cinematic Volvo media brand built around modern Volvo culture, photography, rollers, drone footage, meets, and builds.
+S_XC60s is a cinematic Volvo media brand built around modern Volvo culture, photography, rollers, drone footage, meets, and builds.
 
 This repository contains a static website that can be hosted directly on GitHub Pages.
 
 ## What is included
 
-- `index.html` - the full SXC60S page
+- `index.html` - the full S_XC60s page
 - `styles.css` - responsive styling and cinematic visual treatment
 - `assets/` - local demo vehicle images
 - `CREDITS.md` - image source and license notes
@@ -22,6 +22,6 @@ This repository contains a static website that can be hosted directly on GitHub 
 
 ## Before launch
 
-- Replace demo images in `assets/` with original SXC60S photos or video stills.
-- Update the social links in `index.html` to the real SXC60S Instagram, YouTube, TikTok, and Facebook URLs.
+- Replace demo images in `assets/` with original S_XC60s photos or video stills.
+- Update the social links in `index.html` to the real S_XC60s Instagram, YouTube, TikTok, and Facebook URLs.
 - Update event text when meet dates are confirmed.

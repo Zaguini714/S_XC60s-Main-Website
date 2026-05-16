@@ -1,6 +1,6 @@
 # Credits
 
-The current vehicle images are demo placeholders so the site is ready to preview before original SXC60S media is added.
+The current vehicle images are demo placeholders so the site is ready to preview before original S_XC60s media is added.
 
 ## Demo Image Sources
 
@@ -9,4 +9,4 @@ The current vehicle images are demo placeholders so the site is ready to preview
 - `assets/xc60-feature.jpg` - Volvo XC60 170949, Trop86, Wikimedia Commons, CC0 1.0
 - `assets/xc60-detail.jpg` - Volvo XC60 (SPA) 184228, Trop86, Wikimedia Commons, CC0 1.0
 
-Replace these with original SXC60S photography before a public brand launch if you want the site to fully represent the channel.
+Replace these with original S_XC60s photography before a public brand launch if you want the site to fully represent the channel.
