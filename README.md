@@ -23,5 +23,5 @@ This repository contains a static website that can be hosted directly on GitHub 
 ## Before launch
 
 - Replace demo images in `assets/` with original S_XC60s photos or video stills.
-- Update the social links in `index.html` to the real S_XC60s Instagram, YouTube, TikTok, and Facebook URLs.
+- Update the social links in `index.html` to the real S_XC60s Instagram and YouTube URLs.
 - Update event text when meet dates are confirmed.
