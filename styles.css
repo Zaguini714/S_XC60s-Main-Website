@@ -103,7 +103,7 @@ img {
 }
 
 .opening-logo {
-  font-size: clamp(3.2rem, 10.5vw, 9.4rem);
+  font-size: clamp(4.4rem, 16vw, 12rem);
   font-weight: 950;
   line-height: 0.8;
   text-transform: uppercase;
@@ -264,8 +264,8 @@ p {
 
 h1 {
   margin-bottom: 16px;
-  font-size: clamp(3.7rem, 10.8vw, 9.8rem);
-  line-height: 0.86;
+  font-size: clamp(4.6rem, 16vw, 13.5rem);
+  line-height: 0.78;
   letter-spacing: 0;
   text-transform: uppercase;
 }
@@ -796,7 +796,7 @@ section {
   }
 
   h1 {
-    font-size: clamp(3.3rem, 17vw, 5.6rem);
+    font-size: clamp(4.2rem, 24vw, 6.5rem);
   }
 
   .hero-copy {
