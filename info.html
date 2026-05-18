@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>S_XC60S Brand</title>
+<title>SXC60S Media Info</title>
 
 <style>
 
@@ -11,54 +11,119 @@ background:#111;
 color:white;
 font-family:Arial;
 text-align:center;
-padding:60px 20px;
+padding:40px;
+padding-top:90px;
 }
 
-/* BRAND BLOCK */
-.brand{
-max-width:800px;
-margin:0 auto;
-padding:40px 20px;
+/* BACKGROUND */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:radial-gradient(circle at center, rgba(255,255,255,0.07), transparent 60%);
+pointer-events:none;
 }
 
-.brand p.top{
-opacity:0.7;
-letter-spacing:2px;
-text-transform:uppercase;
+/* TOP BAR TIMER */
+.top-bar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#0a0a0a;
+padding:12px;
+border-bottom:1px solid #333;
+z-index:10;
+}
+
+#timer{
 font-size:14px;
-margin-bottom:10px;
+opacity:0.8;
 }
 
-.brand h1{
-font-size:52px;
-margin:10px 0;
-letter-spacing:5px;
+/* TITLE */
+h1{
+font-size:34px;
+margin:50px 0 10px 0;
+letter-spacing:2px;
 }
 
-.brand p.desc{
-font-size:18px;
-opacity:0.9;
-line-height:1.6;
-margin-top:20px;
+/* BOX */
+.box{
+background:#1f1f1f;
+padding:25px;
+margin:20px auto;
+width:80%;
+max-width:800px;
+border-radius:15px;
 }
 
-/* BUTTON (optional clean enter style) */
+/* BUTTON */
 .button{
 display:inline-block;
-margin-top:30px;
-padding:18px 40px;
+padding:14px 25px;
 background:white;
 color:black;
 text-decoration:none;
+border-radius:10px;
 font-weight:bold;
-border-radius:12px;
-font-size:18px;
+margin:8px;
 transition:0.3s;
 }
 
 .button:hover{
-transform:scale(1.08);
+transform:scale(1.05);
 opacity:0.85;
+}
+
+/* ENTER BUTTON */
+.media-enter-btn{
+display:inline-block;
+padding:45px 100px;
+background:white;
+color:black;
+border-radius:20px;
+font-size:36px;
+font-weight:bold;
+text-decoration:none;
+margin-top:20px;
+transition:0.3s;
+box-shadow:0 0 40px rgba(255,255,255,0.3);
+}
+
+.media-enter-btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 70px rgba(255,255,255,0.5);
+}
+
+/* BRAND SECTION */
+.brand{
+max-width:800px;
+margin:40px auto;
+padding:20px;
+}
+
+.brand .top{
+opacity:0.7;
+letter-spacing:2px;
+text-transform:uppercase;
+font-size:14px;
+}
+
+.brand h2{
+font-size:50px;
+margin:10px 0;
+letter-spacing:5px;
+}
+
+.brand .desc{
+font-size:18px;
+opacity:0.9;
+line-height:1.6;
+margin-top:15px;
 }
 
 </style>
@@ -67,15 +132,23 @@ opacity:0.85;
 
 <body>
 
+<!-- TIMER -->
+<div class="top-bar">
+<div id="timer">Loading timer...</div>
+</div>
+
+<h1>SXC60S MEDIA INFO</h1>
+
+<!-- BRAND BLOCK ADDED PROPERLY -->
 <div class="brand">
 
   <p class="top">
     Modern Volvo culture • cinematic automotive media
   </p>
 
-  <h1>
+  <h2>
     S_XC60S
-  </h1>
+  </h2>
 
   <p class="desc">
     A visual project built from a 2016 Volvo S60L and a 2017 Volvo XC60 T6,<br>
@@ -83,11 +156,79 @@ opacity:0.85;
     luxurious, and truly unique.
   </p>
 
-  <a class="button" href="index.html">
-    ENTER SITE
-  </a>
+</div>
+
+<!-- BOOK -->
+<div class="box">
+
+<h2>📩 Book a Shoot</h2>
+
+<p>
+DM me for photos, videos, drone footage, detailing, or custom requests.
+Everything is built around your vision.
+</p>
+
+<a class="button" href="https://instagram.com/YOURUSERNAME" target="_blank">
+Book Now
+</a>
+
+<br><br>
+
+<a class="media-enter-btn" href="index.html">
+🚗 ENTER SXC60S MEDIA
+</a>
 
 </div>
+
+<!-- OTHER SECTIONS -->
+<div class="box">
+<h2>📷 Photo Packages</h2>
+<p>Clean cinematic car photography packages available.</p>
+</div>
+
+<div class="box">
+<h2>🎬 Video Services</h2>
+<p>Tunnel runs • drone shots • cinematic edits • meets</p>
+</div>
+
+<div class="box">
+<h2>🚁 Drone Packages</h2>
+<p>Custom aerial + cinematic packages available</p>
+</div>
+
+<div class="box">
+<h2>Future Plans</h2>
+<p>Car meets • builds • Volvo content • media expansion</p>
+</div>
+
+<script>
+
+/* TIMER */
+let startTime = localStorage.getItem("sxc60s_start");
+
+if(!startTime){
+startTime = Date.now();
+localStorage.setItem("sxc60s_start", startTime);
+}
+
+function updateTimer(){
+
+const now = Date.now();
+const diff = now - startTime;
+
+const days = Math.floor(diff / (1000*60*60*24));
+const hours = Math.floor((diff / (1000*60*60)) % 24);
+const minutes = Math.floor((diff / (1000*60)) % 60);
+
+document.getElementById("timer").innerText =
+`SXC60S LIVE FOR: ${days}d ${hours}h ${minutes}m`;
+
+}
+
+setInterval(updateTimer, 1000);
+updateTimer();
+
+</script>
 
 </body>
 </html>
