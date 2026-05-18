@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>SXC60S Media Info</title>
+<title>S_XC60S Brand</title>
 
 <style>
 
@@ -11,149 +11,54 @@ background:#111;
 color:white;
 font-family:Arial;
 text-align:center;
-
-/* ✅ FIX: proper spacing for fixed top bar */
-padding:40px;
-padding-top:120px;
+padding:60px 20px;
 }
 
-/* =========================
-   BACKGROUND GLOW
-========================= */
-
-body::before{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:radial-gradient(circle at center, rgba(255,255,255,0.07), transparent 60%);
-pointer-events:none;
-}
-
-/* =========================
-   HEADER TIMER
-========================= */
-
-.top-bar{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:#0a0a0a;
-padding:12px;
-border-bottom:1px solid #333;
-z-index:10;
-}
-
-#timer{
-font-size:14px;
-opacity:0.8;
-}
-
-/* =========================
-   TITLE (FIXED PROPERLY)
-========================= */
-
-h1{
-font-size:34px;
-margin:60px 0 10px 0; /* ✅ pushes it BELOW the fixed bar cleanly */
-letter-spacing:2px;
-opacity:0.95;
-}
-
-/* =========================
-   BOXES
-========================= */
-
-.box{
-background:#1f1f1f;
-padding:25px;
-margin:20px auto;
-width:80%;
+/* BRAND BLOCK */
+.brand{
 max-width:800px;
-border-radius:15px;
-
-transition:0.3s;
+margin:0 auto;
+padding:40px 20px;
 }
 
-.box:hover{
-transform:translateY(-6px);
-box-shadow:0 10px 30px rgba(255,255,255,0.06);
+.brand p.top{
+opacity:0.7;
+letter-spacing:2px;
+text-transform:uppercase;
+font-size:14px;
+margin-bottom:10px;
 }
 
-/* =========================
-   BUTTONS
-========================= */
+.brand h1{
+font-size:52px;
+margin:10px 0;
+letter-spacing:5px;
+}
 
+.brand p.desc{
+font-size:18px;
+opacity:0.9;
+line-height:1.6;
+margin-top:20px;
+}
+
+/* BUTTON (optional clean enter style) */
 .button{
 display:inline-block;
-padding:14px 25px;
+margin-top:30px;
+padding:18px 40px;
 background:white;
 color:black;
 text-decoration:none;
-border-radius:10px;
 font-weight:bold;
-margin:8px;
-
+border-radius:12px;
+font-size:18px;
 transition:0.3s;
 }
 
 .button:hover{
-transform:scale(1.05);
+transform:scale(1.08);
 opacity:0.85;
-}
-
-/* =========================
-   BIG ENTER BUTTON
-========================= */
-
-.media-enter-btn{
-display:inline-block;
-
-padding:50px 120px;
-background:white;
-color:black;
-
-border-radius:20px;
-
-text-decoration:none;
-font-weight:bold;
-
-font-size:42px;
-letter-spacing:3px;
-
-margin:25px 0;
-
-transition:0.3s;
-
-box-shadow:0 0 50px rgba(255,255,255,0.35);
-}
-
-.media-enter-btn:hover{
-transform:scale(1.12);
-box-shadow:0 0 90px rgba(255,255,255,0.5);
-opacity:0.9;
-}
-
-/* =========================
-   INFO CARDS
-========================= */
-
-.info-card{
-background:#2a2a2a;
-padding:15px;
-margin:10px auto;
-border-radius:10px;
-width:80%;
-max-width:500px;
-transition:0.3s;
-}
-
-.info-card:hover{
-transform:scale(1.03);
-background:#333;
 }
 
 </style>
@@ -162,139 +67,27 @@ background:#333;
 
 <body>
 
-<!-- TIMER -->
-<div class="top-bar">
-<div id="timer">Loading timer...</div>
-</div>
+<div class="brand">
 
-<!-- TITLE -->
-<h1>SXC60S MEDIA INFO</h1>
+  <p class="top">
+    Modern Volvo culture • cinematic automotive media
+  </p>
 
-<!-- BOOK -->
-<div class="box">
+  <h1>
+    S_XC60S
+  </h1>
 
-<h2>📩 Book a Shoot</h2>
+  <p class="desc">
+    A visual project built from a 2016 Volvo S60L and a 2017 Volvo XC60 T6,<br>
+    designed to prove that Volvo builds can be aggressive, cinematic,<br>
+    luxurious, and truly unique.
+  </p>
 
-<p>
-DM me for photos, videos, drone footage, detailing, or custom requests.
-Everything is built around your vision.
-</p>
-
-<a class="button" href="https://instagram.com/YOURUSERNAME" target="_blank">
-Book Now
-</a>
-
-<br><br>
-
-<a class="media-enter-btn" href="index.html">
-🚗 ENTER SXC60S MEDIA
-</a>
+  <a class="button" href="index.html">
+    ENTER SITE
+  </a>
 
 </div>
-
-<!-- ABOUT -->
-<div class="box">
-
-<h2>About Me</h2>
-
-<p>
-Hi, I'm Zach and I'm building SXC60S Media around cars, photography, edits, and car culture.
-I focus on clean cinematic visuals, car shoots, and creative edits.
-</p>
-
-</div>
-
-<!-- PHOTO -->
-<div class="box">
-
-<h2>📷 Photo Packages</h2>
-
-<p>
-Quick Shot — $15 (3 photos)<br>
-Starter — $25 (5 photos)<br>
-Standard — $45 (10 photos)<br>
-Premium — $60 (15 photos)<br>
-Showcase — $75 (20 photos + full showcase)
-</p>
-
-</div>
-
-<!-- VIDEO -->
-<div class="box">
-
-<h2>🎬 Video Services</h2>
-
-<p>
-Tunnel runs and motion clips<br>
-Drone footage and scenic pulls<br>
-Meet coverage and community shoots
-</p>
-
-</div>
-
-<!-- DRONE -->
-<div class="box">
-
-<h2>🚁 Drone Packages</h2>
-
-<p>
-Starter — $15 (3 aerial photos)<br>
-Air Package — $25 (5 aerial photos)<br>
-Combo — $35 (Drone + photos)
-</p>
-
-<br>
-
-<p style="color:lime; font-weight:bold;">
-🔥 ON SALE 🔥<br>
-13 photos + 5 aerial shots + custom edit — $50
-</p>
-
-</div>
-
-<!-- FUTURE -->
-<div class="box">
-
-<h2>Future Plans</h2>
-
-<p>
-• Car meets<br>
-• Community page<br>
-• Volvo content<br>
-• Build showcases<br>
-• More edits
-</p>
-
-</div>
-
-<script>
-
-/* TIMER */
-let startTime = localStorage.getItem("sxc60s_start");
-
-if(!startTime){
-startTime = Date.now();
-localStorage.setItem("sxc60s_start", startTime);
-}
-
-function updateTimer(){
-
-const now = Date.now();
-const diff = now - startTime;
-
-const days = Math.floor(diff / (1000*60*60*24));
-const hours = Math.floor((diff / (1000*60*60)) % 24);
-const minutes = Math.floor((diff / (1000*60)) % 60);
-
-document.getElementById("timer").innerText =
-`SXC60S LIVE FOR: ${days}d ${hours}h ${minutes}m`;
-
-}
-
-setInterval(updateTimer, 1000);
-updateTimer();
-
-</script>
 
 </body>
 </html>
