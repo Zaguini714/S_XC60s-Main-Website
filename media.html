@@ -55,7 +55,6 @@ overflow-y:scroll;
 height:100vh;
 }
 
-/* glow background */
 body::before{
 content:"";
 position:fixed;
@@ -105,7 +104,6 @@ font-size:18px;
 opacity:0.8;
 }
 
-/* scramble title */
 #title{
 font-size:90px;
 margin:10px 0;
@@ -113,7 +111,7 @@ letter-spacing:2px;
 }
 
 /* =========================
-   BUTTONS (MAGNETIC)
+   BUTTONS
 ========================= */
 
 .button{
@@ -193,13 +191,61 @@ font-size:14px;
 opacity:0.7;
 }
 
+/* =========================
+   BOOKING
+========================= */
+
+.booking-grid{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+margin-top:20px;
+}
+
+.booking-card{
+background:#111;
+border:1px solid #333;
+padding:20px;
+border-radius:12px;
+width:200px;
+transition:.3s;
+}
+
+.booking-card:hover{
+transform:translateY(-6px);
+border-color:white;
+}
+
+.booking-card h2{
+font-size:18px;
+margin:0;
+}
+
+.booking-card p{
+font-size:14px;
+opacity:0.8;
+}
+
+/* popup */
+#popup{
+position:fixed;
+bottom:20px;
+right:20px;
+background:white;
+color:black;
+padding:15px 20px;
+border-radius:10px;
+display:none;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<!-- LOADING SCREEN -->
+<!-- LOADER -->
 <div id="loader">
 <h1 id="loadText">SXC60S MEDIA STARTING</h1>
 </div>
@@ -213,7 +259,7 @@ opacity:0.7;
 
 <div>
 <a class="button" href="info.html">INFO / PRICING</a>
-<a class="button" href="index.html">BACK HOME</a>
+<a class="button" href="#booking">BOOK NOW</a>
 </div>
 
 </div>
@@ -230,6 +276,43 @@ opacity:0.7;
 <img src="images/drone.jpg">
 
 </div>
+
+</div>
+
+<!-- BOOKING -->
+<div class="section" id="booking">
+
+<h1 id="bookTitle">BOOK YOUR SHOOT</h1>
+
+<p>Choose a package or request custom work</p>
+
+<div class="booking-grid">
+
+<div class="booking-card">
+<h2>5 PHOTOS</h2>
+<p>$25</p>
+</div>
+
+<div class="booking-card">
+<h2>10 PHOTOS</h2>
+<p>$45</p>
+</div>
+
+<div class="booking-card">
+<h2>13 PHOTOS + DRONE</h2>
+<p>$50 SALE</p>
+</div>
+
+<div class="booking-card">
+<h2>CUSTOM VIDEO EDITS</h2>
+<p>DEPENDS ON REQUEST</p>
+</div>
+
+</div>
+
+<a class="button" id="bookBtn">
+📩 COPY BOOKING MESSAGE
+</a>
 
 </div>
 
@@ -259,35 +342,29 @@ opacity:0.7;
 
 </div>
 
+<!-- POPUP -->
+<div id="popup">Booking message copied ✔</div>
+
 <script>
 
 /* COUNTERS */
-const counters=document.querySelectorAll('.counter');
-
-counters.forEach(counter=>{
-
+document.querySelectorAll('.counter').forEach(counter=>{
 counter.innerText='0';
-
 const update=()=>{
-
 const target=+counter.getAttribute('data-target');
 const c=+counter.innerText;
 const inc=target/80;
-
 if(c<target){
 counter.innerText=Math.ceil(c+inc);
 setTimeout(update,20);
 }else{
 counter.innerText=target+"+";
 }
-
 };
-
 update();
-
 });
 
-/* SCRAMBLE TITLE */
+/* SCRAMBLE */
 const title=document.getElementById("title");
 const finalText="SXC60S MEDIA";
 const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -295,120 +372,59 @@ const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 let frame=0;
 
 function scramble(){
-
 let out="";
-
 for(let i=0;i<finalText.length;i++){
-
-if(i<frame){
-out+=finalText[i];
-}else{
-out+=chars[Math.floor(Math.random()*chars.length)];
+if(i<frame){out+=finalText[i];}
+else{out+=chars[Math.floor(Math.random()*chars.length)];}
 }
-
-}
-
 title.innerText=out;
-
 if(frame<=finalText.length){
 frame++;
 setTimeout(scramble,70);
 }else{
 title.innerText=finalText;
 }
-
 }
-
 scramble();
 
 /* SCROLL ANIMATION */
 const sections=document.querySelectorAll('.section');
 
-const observer=new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-entry.target.classList.add('show');
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.classList.add('show');
 }
-
 });
-
 },{threshold:0.5});
 
-sections.forEach(s=>{
-observer.observe(s);
-});
+sections.forEach(s=>observer.observe(s));
 
-/* 3D TILT */
-const images=document.querySelectorAll(".gallery img");
-
-images.forEach(img=>{
-
-img.addEventListener("mousemove",(e)=>{
-
-const rect=img.getBoundingClientRect();
-
-const x=(e.clientX-rect.left)/rect.width;
-const y=(e.clientY-rect.top)/rect.height;
-
-const rotateX=(y-0.5)*-12;
-const rotateY=(x-0.5)*12;
-
-img.style.transform=
-`perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.06)`;
-
-});
-
-img.addEventListener("mouseleave",()=>{
-
-img.style.transform="perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)";
-
-});
-
-});
-
-/* MAGNETIC BUTTONS */
-const buttons=document.querySelectorAll(".button");
-
-buttons.forEach(btn=>{
-
-btn.addEventListener("mousemove",(e)=>{
-
-const rect=btn.getBoundingClientRect();
-
-const x=e.clientX-rect.left;
-const y=e.clientY-rect.top;
-
-const moveX=(x-rect.width/2)/10;
-const moveY=(y-rect.height/2)/10;
-
-btn.style.transform=`translate(${moveX}px,${moveY}px) scale(1.05)`;
-
-});
-
-btn.addEventListener("mouseleave",()=>{
-
-btn.style.transform="translate(0,0) scale(1)";
-
-});
-
-});
-
-/* LOADING SCREEN */
+/* LOADER */
 window.addEventListener("load",()=>{
-
 setTimeout(()=>{
-
-document.getElementById("loader").style.opacity="0";
-document.getElementById("loader").style.transition="1s ease";
-
-setTimeout(()=>{
-
 document.getElementById("loader").style.display="none";
+},2000);
+});
 
-},1000);
+/* COPY BOOKING MESSAGE */
+const btn=document.getElementById("bookBtn");
+const popup=document.getElementById("popup");
 
+btn.addEventListener("click",()=>{
+
+const msg=`Hi, I want to book a shoot with SXC60S Media.
+Package: (choose one)
+Car: 
+Date: 
+Location:`;
+
+navigator.clipboard.writeText(msg);
+
+popup.style.display="block";
+
+setTimeout(()=>{
+popup.style.display="none";
 },2000);
 
 });
