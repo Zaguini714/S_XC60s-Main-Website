@@ -41,6 +41,33 @@ animation:glitch 1.2s infinite;
 }
 
 /* =========================
+   BACK BUTTON
+========================= */
+
+.back-button{
+position:fixed;
+top:20px;
+left:20px;
+z-index:10000;
+
+background:white;
+color:black;
+padding:12px 18px;
+border-radius:10px;
+
+text-decoration:none;
+font-weight:bold;
+font-size:14px;
+
+transition:.3s;
+}
+
+.back-button:hover{
+transform:scale(1.05);
+opacity:0.85;
+}
+
+/* =========================
    BASE
 ========================= */
 
@@ -133,7 +160,7 @@ opacity:0.85;
 }
 
 /* =========================
-   GALLERY + 3D TILT
+   GALLERY
 ========================= */
 
 .gallery{
@@ -217,16 +244,6 @@ transform:translateY(-6px);
 border-color:white;
 }
 
-.booking-card h2{
-font-size:18px;
-margin:0;
-}
-
-.booking-card p{
-font-size:14px;
-opacity:0.8;
-}
-
 /* popup */
 #popup{
 position:fixed;
@@ -244,6 +261,9 @@ display:none;
 </head>
 
 <body>
+
+<!-- BACK BUTTON -->
+<a class="back-button" href="index.html">← BACK HOME</a>
 
 <!-- LOADER -->
 <div id="loader">
@@ -282,7 +302,7 @@ display:none;
 <!-- BOOKING -->
 <div class="section" id="booking">
 
-<h1 id="bookTitle">BOOK YOUR SHOOT</h1>
+<h1>BOOK YOUR SHOOT</h1>
 
 <p>Choose a package or request custom work</p>
 
