@@ -1,82 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>SXC60S Media</title>
+<title>SXC60S Media Info</title>
 
 <style>
 
-/* BASE */
 body{
 margin:0;
-background:#0f0f0f;
+background:#111;
 color:white;
 font-family:Arial;
-}
-
-/* HERO SECTION (FIXED TOP AREA) */
-.hero{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
 text-align:center;
 padding:40px;
-position:relative;
 }
 
-/* TEXT WRAPPER */
-.hero-text{
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:10px;
-animation:fadeIn 1.5s ease;
+h1{
+font-size:50px;
+margin-bottom:20px;
 }
 
-/* SUB TEXT */
-.sub{
-font-size:14px;
-letter-spacing:3px;
-opacity:0.6;
-text-transform:uppercase;
-margin:0;
+.box{
+background:#222;
+padding:25px;
+margin:20px auto;
+width:80%;
+max-width:800px;
+border-radius:15px;
 }
 
-/* MAIN TITLE */
-.title{
-font-size:72px;
-letter-spacing:6px;
-margin:0;
-}
-
-/* ANIMATION */
-@keyframes fadeIn{
-from{opacity:0; transform:translateY(20px);}
-to{opacity:1; transform:translateY(0);}
-}
-
-/* BUTTON */
 .button{
 display:inline-block;
-margin-top:20px;
-padding:14px 32px;
+padding:15px 30px;
 background:white;
 color:black;
 text-decoration:none;
+border-radius:10px;
 font-weight:bold;
-border-radius:12px;
-transition:0.3s;
+margin-top:15px;
 }
 
-.button:hover{
-transform:scale(1.08);
+.price{
+margin-top:15px;
+line-height:1.7;
 }
 
-/* MOBILE */
-@media (max-width:600px){
-.title{
-font-size:40px;
+.sale{
+color:lime;
+font-weight:bold;
+font-size:20px;
 }
+
+.info-card{
+background:#333;
+padding:15px;
+margin:10px auto;
+border-radius:10px;
+width:80%;
+max-width:500px;
 }
 
 </style>
@@ -85,26 +65,230 @@ font-size:40px;
 
 <body>
 
-<!-- HERO -->
-<header class="hero">
+<h1>SXC60S Media Info</h1>
 
-  <div class="hero-text">
+<div class="box">
 
-    <p class="sub">
-      Modern Volvo culture / cinematic media
-    </p>
+<h2>📩 Book a Shoot</h2>
 
-    <h1 class="title">
-      SXC60S
-    </h1>
+<p>
+DM me for photos, videos, drone footage, detailing, or custom requests.
+Everything can be customized around what you want.
+</p>
 
-    <a class="button" href="info.html">
-      Enter Site
-    </a>
+<a class="button"
+href="https://instagram.com/YOURUSERNAME"
+target="_blank">
 
-  </div>
+Book Now
 
-</header>
+</a>
+
+</div>
+
+
+<div class="box">
+
+<h2>About Me</h2>
+
+<p>
+
+Hi, I'm Zach and I'm building SXC60S Media around cars, photography, edits, and car culture.
+
+I’m growing my skills and portfolio while creating content for people who want clean shots and cool edits of their cars.
+
+I also work on detailing, mod content, and showcasing builds.
+
+</p>
+
+</div>
+
+
+<div class="box">
+
+<h2>📷 Photo Packages</h2>
+
+<div class="price">
+
+Quick Shot — $15<br>
+3 edited photos
+
+</div>
+
+<div class="price">
+
+Starter — $25<br>
+5 edited photos
+
+</div>
+
+<div class="price">
+
+Standard — $45<br>
+10 edited photos
+
+</div>
+
+<div class="price">
+
+Premium — $60<br>
+15 edited photos
+
+</div>
+
+<div class="price">
+
+Showcase — $75<br>
+20 edited photos + full vehicle showcase
+
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>🎬 Video Services</h2>
+
+<div class="price">
+
+All video work is custom.
+
+Pricing depends on:
+
+• what type of edit you want<br>
+• amount of footage<br>
+• drone use<br>
+• rolling shots<br>
+• location<br>
+• custom requests
+
+</div>
+
+<br>
+
+<div class="info-card">
+
+🚗 Cinematic Car Edit
+
+<p>
+Clean edited car videos with music and transitions.
+</p>
+
+</div>
+
+
+<div class="info-card">
+
+🏁 Rolling Shots
+
+<p>
+Videos while the vehicle is moving.
+</p>
+
+</div>
+
+
+<div class="info-card">
+
+📱 Social Media Edits
+
+<p>
+Videos designed for Instagram, TikTok, and similar platforms.
+</p>
+
+</div>
+
+
+<div class="info-card">
+
+🚁 Drone + Ground Mix
+
+<p>
+Mix of aerial and ground footage for a cinematic style.
+</p>
+
+</div>
+
+
+<div class="info-card">
+
+💡 Custom Projects
+
+<p>
+Custom ideas and edits depending on your project.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>🚁 Drone Packages</h2>
+
+<div class="price">
+
+Starter — $15<br>
+3 aerial photos
+
+</div>
+
+<div class="price">
+
+Air Package — $25<br>
+5 aerial photos
+
+</div>
+
+<div class="price">
+
+Combo — $35<br>
+Drone + photos
+
+</div>
+
+<br>
+
+<div class="sale">
+
+🔥 ON SALE 🔥
+
+<br><br>
+
+13 edited photos + 5 aerial shots + custom edit
+
+<br><br>
+
+$50
+
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>Future Plans</h2>
+
+<p>
+
+• Car meets<br>
+• Community page<br>
+• Volvo content<br>
+• Build showcases<br>
+• More edits<br>
+
+</p>
+
+</div>
+
+<a class="button" href="media.html">
+
+Back
+
+</a>
 
 </body>
 </html>
