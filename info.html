@@ -15,19 +15,7 @@ padding:40px;
 padding-top:90px;
 }
 
-/* BACKGROUND */
-body::before{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:radial-gradient(circle at center, rgba(255,255,255,0.07), transparent 60%);
-pointer-events:none;
-}
-
-/* TOP BAR TIMER */
+/* TOP BAR */
 .top-bar{
 position:fixed;
 top:0;
@@ -44,10 +32,10 @@ font-size:14px;
 opacity:0.8;
 }
 
-/* TITLE */
+/* TITLE FIX */
 h1{
-font-size:34px;
-margin:50px 0 10px 0;
+font-size:32px;
+margin:30px 0 10px 0;
 letter-spacing:2px;
 }
 
@@ -76,17 +64,16 @@ transition:0.3s;
 
 .button:hover{
 transform:scale(1.05);
-opacity:0.85;
 }
 
-/* ENTER BUTTON */
+/* BIG ENTER BUTTON */
 .media-enter-btn{
 display:inline-block;
-padding:45px 100px;
+padding:55px 110px;
 background:white;
 color:black;
-border-radius:20px;
-font-size:36px;
+border-radius:18px;
+font-size:38px;
 font-weight:bold;
 text-decoration:none;
 margin-top:20px;
@@ -96,34 +83,32 @@ box-shadow:0 0 40px rgba(255,255,255,0.3);
 
 .media-enter-btn:hover{
 transform:scale(1.08);
-box-shadow:0 0 70px rgba(255,255,255,0.5);
+box-shadow:0 0 80px rgba(255,255,255,0.5);
 }
 
 /* BRAND SECTION */
 .brand{
-max-width:800px;
 margin:40px auto;
-padding:20px;
+max-width:800px;
 }
 
-.brand .top{
+.brand p{
 opacity:0.7;
 letter-spacing:2px;
 text-transform:uppercase;
-font-size:14px;
+font-size:13px;
 }
 
 .brand h2{
-font-size:50px;
+font-size:48px;
 margin:10px 0;
-letter-spacing:5px;
+letter-spacing:4px;
 }
 
 .brand .desc{
 font-size:18px;
 opacity:0.9;
 line-height:1.6;
-margin-top:15px;
 }
 
 </style>
@@ -132,41 +117,30 @@ margin-top:15px;
 
 <body>
 
-<!-- TIMER -->
 <div class="top-bar">
 <div id="timer">Loading timer...</div>
 </div>
 
 <h1>SXC60S MEDIA INFO</h1>
 
-<!-- BRAND BLOCK ADDED PROPERLY -->
 <div class="brand">
 
-  <p class="top">
-    Modern Volvo culture • cinematic automotive media
-  </p>
+<p>Modern Volvo culture • cinematic automotive media</p>
 
-  <h2>
-    S_XC60S
-  </h2>
+<h2>S_XC60S</h2>
 
-  <p class="desc">
-    A visual project built from a 2016 Volvo S60L and a 2017 Volvo XC60 T6,<br>
-    designed to prove that Volvo builds can be aggressive, cinematic,<br>
-    luxurious, and truly unique.
-  </p>
+<div class="desc">
+A visual project built from a 2016 Volvo S60L and a 2017 Volvo XC60 T6,<br>
+showing Volvo can be aggressive, cinematic, luxurious, and unique.
+</div>
 
 </div>
 
-<!-- BOOK -->
 <div class="box">
 
-<h2>📩 Book a Shoot</h2>
+<h2>Book a Shoot</h2>
 
-<p>
-DM me for photos, videos, drone footage, detailing, or custom requests.
-Everything is built around your vision.
-</p>
+<p>DM for photos, videos, drone, meets, or custom edits.</p>
 
 <a class="button" href="https://instagram.com/YOURUSERNAME" target="_blank">
 Book Now
@@ -175,30 +149,9 @@ Book Now
 <br><br>
 
 <a class="media-enter-btn" href="index.html">
-🚗 ENTER SXC60S MEDIA
+ENTER SXC60S MEDIA
 </a>
 
-</div>
-
-<!-- OTHER SECTIONS -->
-<div class="box">
-<h2>📷 Photo Packages</h2>
-<p>Clean cinematic car photography packages available.</p>
-</div>
-
-<div class="box">
-<h2>🎬 Video Services</h2>
-<p>Tunnel runs • drone shots • cinematic edits • meets</p>
-</div>
-
-<div class="box">
-<h2>🚁 Drone Packages</h2>
-<p>Custom aerial + cinematic packages available</p>
-</div>
-
-<div class="box">
-<h2>Future Plans</h2>
-<p>Car meets • builds • Volvo content • media expansion</p>
 </div>
 
 <script>
@@ -212,17 +165,15 @@ localStorage.setItem("sxc60s_start", startTime);
 }
 
 function updateTimer(){
-
 const now = Date.now();
 const diff = now - startTime;
 
-const days = Math.floor(diff / (1000*60*60*24));
-const hours = Math.floor((diff / (1000*60*60)) % 24);
-const minutes = Math.floor((diff / (1000*60)) % 60);
+const days = Math.floor(diff / 86400000);
+const hours = Math.floor((diff / 3600000) % 24);
+const minutes = Math.floor((diff / 60000) % 60);
 
 document.getElementById("timer").innerText =
 `SXC60S LIVE FOR: ${days}d ${hours}h ${minutes}m`;
-
 }
 
 setInterval(updateTimer, 1000);
