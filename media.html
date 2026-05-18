@@ -109,8 +109,7 @@ transition:.3s;
 
 transform:scale(1.08);
 
-box-shadow:
-0 0 25px white;
+box-shadow:0 0 25px white;
 
 }
 
@@ -127,8 +126,6 @@ padding:60px;
 
 }
 
-/* PHOTOS */
-
 .gallery img{
 
 width:320px;
@@ -136,8 +133,7 @@ border-radius:15px;
 
 transition:.4s;
 
-box-shadow:
-0 0 20px rgba(255,255,255,.15);
+box-shadow:0 0 20px rgba(255,255,255,.15);
 
 }
 
@@ -147,8 +143,54 @@ transform:
 translateY(-10px)
 scale(1.05);
 
-box-shadow:
-0 0 30px rgba(255,255,255,.4);
+box-shadow:0 0 30px rgba(255,255,255,.4);
+
+}
+
+/* STATS */
+
+.stats{
+
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
+padding:50px;
+
+}
+
+.stat-box{
+
+background:#222;
+padding:30px;
+border-radius:15px;
+width:220px;
+
+box-shadow:0 0 20px rgba(255,255,255,.15);
+
+transition:.3s;
+
+}
+
+.stat-box:hover{
+
+transform:translateY(-8px);
+
+}
+
+.stat-box h2{
+
+font-size:50px;
+margin:0;
+
+text-shadow:
+0 0 10px white;
+
+}
+
+.stat-box p{
+
+font-size:20px;
 
 }
 
@@ -185,6 +227,74 @@ Car Photography • Drone Shots • Cinematic Edits
 <img src="images/drone.jpg">
 
 </div>
+
+
+<div class="stats">
+
+<div class="stat-box">
+
+<h2 class="counter" data-target="150">0</h2>
+
+<p>Photos Taken</p>
+
+</div>
+
+<div class="stat-box">
+
+<h2 class="counter" data-target="25">0</h2>
+
+<p>Edits Created</p>
+
+</div>
+
+<div class="stat-box">
+
+<h2 class="counter" data-target="10">0</h2>
+
+<p>Shoots</p>
+
+</div>
+
+</div>
+
+
+<script>
+
+const counters=document.querySelectorAll('.counter');
+
+counters.forEach(counter=>{
+
+counter.innerText='0';
+
+const updateCounter=()=>{
+
+const target=+counter.getAttribute('data-target');
+
+const c=+counter.innerText;
+
+const increment=target/80;
+
+if(c<target){
+
+counter.innerText=`${Math.ceil(c+increment)}`;
+
+setTimeout(updateCounter,20);
+
+}
+
+else{
+
+counter.innerText=target+"+";
+
+}
+
+};
+
+updateCounter();
+
+});
+
+</script>
 
 </body>
 </html>
