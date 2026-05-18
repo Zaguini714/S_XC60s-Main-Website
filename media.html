@@ -12,16 +12,31 @@ margin:0;
 background:#0f0f0f;
 color:white;
 font-family:Arial;
-text-align:center;
+
+/* APPLE SCROLL SNAP */
+scroll-snap-type:y mandatory;
+overflow-y:scroll;
+height:100vh;
 }
 
-/* HERO (MORE TOP-FOCUSED) */
-header{
-padding:60px 20px 40px 20px;
-background:#0f0f0f;
+/* SECTIONS */
+.section{
+height:100vh;
+scroll-snap-align:start;
+
 display:flex;
 flex-direction:column;
+justify-content:center;
 align-items:center;
+
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
+}
+
+.section.show{
+opacity:1;
+transform:translateY(0);
 }
 
 /* TITLE */
@@ -31,11 +46,9 @@ margin:10px 0;
 letter-spacing:2px;
 }
 
-/* SUBTEXT */
 p{
 font-size:18px;
 opacity:0.8;
-margin-top:5px;
 }
 
 /* BUTTONS */
@@ -57,24 +70,26 @@ transform:scale(1.05);
 opacity:0.85;
 }
 
-/* GALLERY (closer to top, tighter spacing) */
+/* GALLERY */
 .gallery{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:15px;
-padding:20px 20px 40px 20px;
+gap:20px;
 }
 
+/* 3D TILT IMAGES */
 .gallery img{
 width:260px;
 border-radius:12px;
 filter:grayscale(100%);
-transition:.3s;
+
+transition:transform 0.15s ease, filter 0.3s ease;
+transform-style:preserve-3d;
+will-change:transform;
 }
 
 .gallery img:hover{
-transform:translateY(-6px) scale(1.03);
 filter:grayscale(0%);
 }
 
@@ -84,7 +99,6 @@ display:flex;
 justify-content:center;
 flex-wrap:wrap;
 gap:15px;
-padding:20px;
 }
 
 .stat-box{
@@ -124,20 +138,24 @@ letter-spacing:2px;
 
 <body>
 
-<header>
+<!-- HERO -->
+<div class="section">
 
 <h1 id="title">SXC60S MEDIA</h1>
 
-<p>
-CAR PHOTOGRAPHY • DRONE • CINEMATIC EDITS
-</p>
+<p>CAR PHOTOGRAPHY • DRONE • CINEMATIC EDITS</p>
 
 <div>
 <a class="button" href="info.html">INFO / PRICING</a>
 <a class="button" href="index.html">BACK HOME</a>
 </div>
 
-</header>
+</div>
+
+<!-- GALLERY -->
+<div class="section">
+
+<h1>GALLERY</h1>
 
 <div class="gallery">
 
@@ -147,6 +165,12 @@ CAR PHOTOGRAPHY • DRONE • CINEMATIC EDITS
 
 </div>
 
+</div>
+
+<!-- STATS -->
+<div class="section">
+
+<h1>RESULTS</h1>
 
 <div class="stats">
 
@@ -167,6 +191,7 @@ CAR PHOTOGRAPHY • DRONE • CINEMATIC EDITS
 
 </div>
 
+</div>
 
 <script>
 
@@ -229,6 +254,57 @@ title.innerText=finalText;
 }
 
 scramble();
+
+/* SCROLL ANIMATION */
+const sections=document.querySelectorAll('.section');
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+}
+
+});
+
+},{threshold:0.5});
+
+sections.forEach(s=>{
+observer.observe(s);
+});
+
+
+/* 3D HOVER TILT */
+const images=document.querySelectorAll(".gallery img");
+
+images.forEach(img=>{
+
+img.addEventListener("mousemove",(e)=>{
+
+const rect=img.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+const y=e.clientY-rect.top;
+
+const centerX=rect.width/2;
+const centerY=rect.height/2;
+
+const rotateX=((y-centerY)/10)*-1;
+const rotateY=((x-centerX)/10);
+
+img.style.transform=
+`perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+
+});
+
+img.addEventListener("mouseleave",()=>{
+
+img.style.transform="perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)";
+
+});
+
+});
 
 </script>
 
