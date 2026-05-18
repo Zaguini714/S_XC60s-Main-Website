@@ -6,88 +6,76 @@
 
 <style>
 
+/* BASE */
 body{
-background:#111;
+margin:0;
+background:#0f0f0f;
 color:white;
 font-family:Arial;
-margin:0;
 text-align:center;
-animation:fadeIn 1.5s;
 }
 
-/* FADE IN */
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
-}
-
-/* HERO SECTION */
+/* HERO (MORE TOP-FOCUSED) */
 header{
-height:100vh;
-background-image:url("images/hero.jpg");
-background-position:center;
-background-size:100%;
+padding:60px 20px 40px 20px;
+background:#0f0f0f;
 display:flex;
-justify-content:center;
-align-items:center;
 flex-direction:column;
-animation:zoomHero 8s ease-in-out infinite alternate;
+align-items:center;
 }
 
-@keyframes zoomHero{
-from{background-size:100%;}
-to{background-size:110%;}
-}
-
-/* TITLE (SCRAMBLE) */
+/* TITLE */
 h1{
-font-size:120px;
-margin:0;
-text-shadow:0 0 10px white, 0 0 20px white;
+font-size:90px;
+margin:10px 0;
+letter-spacing:2px;
 }
 
+/* SUBTEXT */
 p{
-font-size:25px;
+font-size:18px;
+opacity:0.8;
+margin-top:5px;
 }
 
 /* BUTTONS */
 .button{
 display:inline-block;
-padding:20px 45px;
+padding:16px 35px;
 background:white;
 color:black;
-border-radius:15px;
+border-radius:12px;
 text-decoration:none;
 font-weight:bold;
-font-size:22px;
-margin:15px;
+font-size:18px;
+margin:10px;
 transition:.3s;
 }
 
 .button:hover{
-transform:scale(1.08);
-box-shadow:0 0 25px white;
+transform:scale(1.05);
+opacity:0.85;
 }
 
-/* GALLERY */
+/* GALLERY (closer to top, tighter spacing) */
 .gallery{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:25px;
-padding:60px;
+gap:15px;
+padding:20px 20px 40px 20px;
 }
 
 .gallery img{
-width:320px;
-border-radius:15px;
-transition:.4s;
-box-shadow:0 0 20px rgba(255,255,255,.15);
+width:260px;
+border-radius:12px;
+filter:grayscale(100%);
+transition:.3s;
 }
 
 .gallery img:hover{
-transform:translateY(-10px) scale(1.05);
-box-shadow:0 0 30px rgba(255,255,255,.4);
+transform:translateY(-6px) scale(1.03);
+filter:grayscale(0%);
 }
 
 /* STATS */
@@ -95,38 +83,39 @@ box-shadow:0 0 30px rgba(255,255,255,.4);
 display:flex;
 justify-content:center;
 flex-wrap:wrap;
-gap:25px;
-padding:50px;
+gap:15px;
+padding:20px;
 }
 
 .stat-box{
-background:#222;
-padding:30px;
-border-radius:15px;
-width:220px;
-box-shadow:0 0 20px rgba(255,255,255,.15);
+background:#111;
+border:1px solid #333;
+padding:20px;
+border-radius:12px;
+width:180px;
 transition:.3s;
 }
 
 .stat-box:hover{
-transform:translateY(-8px);
+transform:translateY(-5px);
+border-color:white;
 }
 
 .stat-box h2{
-font-size:50px;
+font-size:40px;
 margin:0;
-text-shadow:0 0 10px white;
 }
 
 .stat-box p{
-font-size:20px;
+font-size:14px;
+opacity:0.7;
 }
 
-/* TITLE (scramble fix) */
+/* SCRAMBLE TITLE */
 #title{
-font-size:120px;
-margin:0;
-text-shadow:0 0 10px white, 0 0 20px white;
+font-size:90px;
+margin:10px 0;
+letter-spacing:2px;
 }
 
 </style>
@@ -140,16 +129,13 @@ text-shadow:0 0 10px white, 0 0 20px white;
 <h1 id="title">SXC60S MEDIA</h1>
 
 <p>
-Car Photography • Drone Shots • Cinematic Edits
+CAR PHOTOGRAPHY • DRONE • CINEMATIC EDITS
 </p>
 
-<a class="button" href="info.html">
-📋 Info / Pricing
-</a>
-
-<a class="button" href="index.html">
-🏠 Back Home
-</a>
+<div>
+<a class="button" href="info.html">INFO / PRICING</a>
+<a class="button" href="index.html">BACK HOME</a>
+</div>
 
 </header>
 
@@ -166,82 +152,78 @@ Car Photography • Drone Shots • Cinematic Edits
 
 <div class="stat-box">
 <h2 class="counter" data-target="150">0</h2>
-<p>Photos Taken</p>
+<p>PHOTOS</p>
 </div>
 
 <div class="stat-box">
 <h2 class="counter" data-target="25">0</h2>
-<p>Edits Created</p>
+<p>EDITS</p>
 </div>
 
 <div class="stat-box">
 <h2 class="counter" data-target="10">0</h2>
-<p>Shoots</p>
+<p>SHOOTS</p>
 </div>
 
 </div>
 
-<!-- S T A T S   A N I M A T I O N -->
+
 <script>
 
+/* COUNTERS */
 const counters=document.querySelectorAll('.counter');
 
 counters.forEach(counter=>{
 
 counter.innerText='0';
 
-const updateCounter=()=>{
+const update=()=>{
 
 const target=+counter.getAttribute('data-target');
 const c=+counter.innerText;
-const increment=target/80;
+const inc=target/80;
 
 if(c<target){
-counter.innerText=`${Math.ceil(c+increment)}`;
-setTimeout(updateCounter,20);
+counter.innerText=Math.ceil(c+inc);
+setTimeout(update,20);
 }else{
 counter.innerText=target+"+";
 }
 
 };
 
-updateCounter();
+update();
 
 });
 
-</script>
+/* SCRAMBLE TEXT */
+const title=document.getElementById("title");
+const finalText="SXC60S MEDIA";
+const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-<!-- SCRAMBLE TITLE -->
-<script>
-
-const title = document.getElementById("title");
-
-const finalText = "SXC60S MEDIA";
-const chars = "!@#$%^&*ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-let frame = 0;
+let frame=0;
 
 function scramble(){
 
-let output = "";
+let out="";
 
-for(let i = 0; i < finalText.length; i++){
+for(let i=0;i<finalText.length;i++){
 
-if(i < frame){
-output += finalText[i];
+if(i<frame){
+out+=finalText[i];
 }else{
-output += chars[Math.floor(Math.random() * chars.length)];
+out+=chars[Math.floor(Math.random()*chars.length)];
 }
 
 }
 
-title.innerText = output;
+title.innerText=out;
 
-if(frame <= finalText.length){
+if(frame<=finalText.length){
 frame++;
-setTimeout(scramble, 80);
+setTimeout(scramble,70);
 }else{
-title.innerText = finalText;
+title.innerText=finalText;
 }
 
 }
