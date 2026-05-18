@@ -14,10 +14,38 @@ text-align:center;
 padding:40px;
 }
 
+/* =========================
+   HEADER TIMER BAR
+========================= */
+
+.top-bar{
+position:sticky;
+top:0;
+background:#0f0f0f;
+padding:15px;
+border-bottom:1px solid #333;
+z-index:10;
+}
+
+#timer{
+font-size:14px;
+opacity:0.8;
+letter-spacing:1px;
+}
+
+/* =========================
+   TITLE
+========================= */
+
 h1{
 font-size:50px;
 margin-bottom:20px;
+text-shadow:0 0 10px rgba(255,255,255,0.2);
 }
+
+/* =========================
+   BOXES
+========================= */
 
 .box{
 background:#222;
@@ -26,7 +54,18 @@ margin:20px auto;
 width:80%;
 max-width:800px;
 border-radius:15px;
+
+transition:0.3s;
 }
+
+.box:hover{
+transform:translateY(-5px);
+box-shadow:0 0 20px rgba(255,255,255,0.1);
+}
+
+/* =========================
+   BUTTON
+========================= */
 
 .button{
 display:inline-block;
@@ -37,18 +76,37 @@ text-decoration:none;
 border-radius:10px;
 font-weight:bold;
 margin-top:15px;
+
+transition:0.3s;
 }
+
+.button:hover{
+transform:scale(1.05);
+opacity:0.85;
+}
+
+/* =========================
+   PRICE
+========================= */
 
 .price{
 margin-top:15px;
 line-height:1.7;
 }
 
+/* =========================
+   SALE
+========================= */
+
 .sale{
 color:lime;
 font-weight:bold;
 font-size:20px;
 }
+
+/* =========================
+   INFO CARDS
+========================= */
 
 .info-card{
 background:#333;
@@ -57,6 +115,13 @@ margin:10px auto;
 border-radius:10px;
 width:80%;
 max-width:500px;
+
+transition:0.3s;
+}
+
+.info-card:hover{
+transform:scale(1.02);
+background:#3a3a3a;
 }
 
 </style>
@@ -64,6 +129,11 @@ max-width:500px;
 </head>
 
 <body>
+
+<!-- TOP TIMER -->
+<div class="top-bar">
+<div id="timer">Loading timer...</div>
+</div>
 
 <h1>SXC60S Media Info</h1>
 
@@ -76,219 +146,131 @@ DM me for photos, videos, drone footage, detailing, or custom requests.
 Everything can be customized around what you want.
 </p>
 
-<a class="button"
-href="https://instagram.com/YOURUSERNAME"
-target="_blank">
-
+<a class="button" href="https://instagram.com/YOURUSERNAME" target="_blank">
 Book Now
-
 </a>
 
 </div>
-
 
 <div class="box">
 
 <h2>About Me</h2>
 
 <p>
-
 Hi, I'm Zach and I'm building SXC60S Media around cars, photography, edits, and car culture.
-
 I’m growing my skills and portfolio while creating content for people who want clean shots and cool edits of their cars.
-
 I also work on detailing, mod content, and showcasing builds.
-
 </p>
 
 </div>
-
 
 <div class="box">
 
 <h2>📷 Photo Packages</h2>
 
-<div class="price">
-
-Quick Shot — $15<br>
-3 edited photos
-
-</div>
-
-<div class="price">
-
-Starter — $25<br>
-5 edited photos
+<div class="price">Quick Shot — $15<br>3 edited photos</div>
+<div class="price">Starter — $25<br>5 edited photos</div>
+<div class="price">Standard — $45<br>10 edited photos</div>
+<div class="price">Premium — $60<br>15 edited photos</div>
+<div class="price">Showcase — $75<br>20 edited photos + full vehicle showcase</div>
 
 </div>
-
-<div class="price">
-
-Standard — $45<br>
-10 edited photos
-
-</div>
-
-<div class="price">
-
-Premium — $60<br>
-15 edited photos
-
-</div>
-
-<div class="price">
-
-Showcase — $75<br>
-20 edited photos + full vehicle showcase
-
-</div>
-
-</div>
-
 
 <div class="box">
 
 <h2>🎬 Video Services</h2>
 
 <div class="price">
-
-All video work is custom.
-
-Pricing depends on:
-
-• what type of edit you want<br>
-• amount of footage<br>
-• drone use<br>
-• rolling shots<br>
-• location<br>
-• custom requests
-
+All video work is custom. Pricing depends on request.
 </div>
 
-<br>
-
 <div class="info-card">
-
 🚗 Cinematic Car Edit
-
-<p>
-Clean edited car videos with music and transitions.
-</p>
-
+<p>Clean edited car videos with music and transitions.</p>
 </div>
 
-
 <div class="info-card">
-
 🏁 Rolling Shots
-
-<p>
-Videos while the vehicle is moving.
-</p>
-
+<p>Videos while the vehicle is moving.</p>
 </div>
 
-
 <div class="info-card">
-
 📱 Social Media Edits
-
-<p>
-Videos designed for Instagram, TikTok, and similar platforms.
-</p>
-
+<p>Optimized for Instagram & TikTok.</p>
 </div>
 
-
 <div class="info-card">
-
 🚁 Drone + Ground Mix
-
-<p>
-Mix of aerial and ground footage for a cinematic style.
-</p>
-
-</div>
-
-
-<div class="info-card">
-
-💡 Custom Projects
-
-<p>
-Custom ideas and edits depending on your project.
-</p>
-
+<p>Aerial + ground cinematic footage.</p>
 </div>
 
 </div>
-
 
 <div class="box">
 
 <h2>🚁 Drone Packages</h2>
 
-<div class="price">
-
-Starter — $15<br>
-3 aerial photos
-
-</div>
-
-<div class="price">
-
-Air Package — $25<br>
-5 aerial photos
-
-</div>
-
-<div class="price">
-
-Combo — $35<br>
-Drone + photos
-
-</div>
+<div class="price">Starter — $15<br>3 aerial photos</div>
+<div class="price">Air Package — $25<br>5 aerial photos</div>
+<div class="price">Combo — $35<br>Drone + photos</div>
 
 <br>
 
 <div class="sale">
-
-🔥 ON SALE 🔥
-
-<br><br>
-
-13 edited photos + 5 aerial shots + custom edit
-
-<br><br>
-
+🔥 ON SALE 🔥<br><br>
+13 edited photos + 5 aerial shots + custom edit<br><br>
 $50
-
 </div>
 
 </div>
-
 
 <div class="box">
 
 <h2>Future Plans</h2>
 
 <p>
-
 • Car meets<br>
 • Community page<br>
 • Volvo content<br>
 • Build showcases<br>
-• More edits<br>
-
+• More edits
 </p>
 
 </div>
 
-<a class="button" href="media.html">
+<a class="button" href="media.html">Back</a>
 
-Back
+<script>
 
-</a>
+/* =========================
+   PERSISTENT TIMER (LOCAL STORAGE)
+========================= */
+
+let startTime = localStorage.getItem("sxc60s_start");
+
+if(!startTime){
+startTime = Date.now();
+localStorage.setItem("sxc60s_start", startTime);
+}
+
+function updateTimer(){
+
+const now = Date.now();
+const diff = now - startTime;
+
+const days = Math.floor(diff / (1000*60*60*24));
+const hours = Math.floor((diff / (1000*60*60)) % 24);
+const minutes = Math.floor((diff / (1000*60)) % 60);
+
+document.getElementById("timer").innerText =
+`SXC60S LIVE FOR: ${days}d ${hours}h ${minutes}m`;
+
+}
+
+setInterval(updateTimer, 1000);
+updateTimer();
+
+</script>
 
 </body>
 </html>
