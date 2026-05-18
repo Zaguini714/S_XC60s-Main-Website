@@ -6,20 +6,71 @@
 
 <style>
 
-/* BASE */
+/* =========================
+   LOADING SCREEN
+========================= */
+
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:#0f0f0f;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+flex-direction:column;
+}
+
+#loadText{
+font-size:40px;
+letter-spacing:4px;
+text-transform:uppercase;
+animation:glitch 1.2s infinite;
+}
+
+@keyframes glitch{
+0%{transform:translate(0);}
+20%{transform:translate(-2px,2px);}
+40%{transform:translate(2px,-2px);}
+60%{transform:translate(-1px,1px);}
+80%{transform:translate(1px,-1px);}
+100%{transform:translate(0);}
+}
+
+/* =========================
+   BASE
+========================= */
+
 body{
 margin:0;
 background:#0f0f0f;
 color:white;
 font-family:Arial;
 
-/* APPLE SCROLL SNAP */
 scroll-snap-type:y mandatory;
 overflow-y:scroll;
 height:100vh;
 }
 
-/* SECTIONS */
+/* glow background */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:radial-gradient(circle at 50% 20%, rgba(255,255,255,0.08), transparent 60%);
+pointer-events:none;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
 .section{
 height:100vh;
 scroll-snap-align:start;
@@ -39,7 +90,10 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* TITLE */
+/* =========================
+   TEXT
+========================= */
+
 h1{
 font-size:90px;
 margin:10px 0;
@@ -51,7 +105,17 @@ font-size:18px;
 opacity:0.8;
 }
 
-/* BUTTONS */
+/* scramble title */
+#title{
+font-size:90px;
+margin:10px 0;
+letter-spacing:2px;
+}
+
+/* =========================
+   BUTTONS (MAGNETIC)
+========================= */
+
 .button{
 display:inline-block;
 padding:16px 35px;
@@ -70,7 +134,10 @@ transform:scale(1.05);
 opacity:0.85;
 }
 
-/* GALLERY */
+/* =========================
+   GALLERY + 3D TILT
+========================= */
+
 .gallery{
 display:flex;
 flex-wrap:wrap;
@@ -78,13 +145,11 @@ justify-content:center;
 gap:20px;
 }
 
-/* 3D TILT IMAGES */
 .gallery img{
 width:260px;
 border-radius:12px;
 filter:grayscale(100%);
-
-transition:transform 0.15s ease, filter 0.3s ease;
+transition:transform 0.2s ease, filter 0.3s ease;
 transform-style:preserve-3d;
 will-change:transform;
 }
@@ -93,7 +158,10 @@ will-change:transform;
 filter:grayscale(0%);
 }
 
-/* STATS */
+/* =========================
+   STATS
+========================= */
+
 .stats{
 display:flex;
 justify-content:center;
@@ -125,18 +193,16 @@ font-size:14px;
 opacity:0.7;
 }
 
-/* SCRAMBLE TITLE */
-#title{
-font-size:90px;
-margin:10px 0;
-letter-spacing:2px;
-}
-
 </style>
 
 </head>
 
 <body>
+
+<!-- LOADING SCREEN -->
+<div id="loader">
+<h1 id="loadText">SXC60S MEDIA STARTING</h1>
+</div>
 
 <!-- HERO -->
 <div class="section">
@@ -221,7 +287,7 @@ update();
 
 });
 
-/* SCRAMBLE TEXT */
+/* SCRAMBLE TITLE */
 const title=document.getElementById("title");
 const finalText="SXC60S MEDIA";
 const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -274,8 +340,7 @@ sections.forEach(s=>{
 observer.observe(s);
 });
 
-
-/* 3D HOVER TILT */
+/* 3D TILT */
 const images=document.querySelectorAll(".gallery img");
 
 images.forEach(img=>{
@@ -284,25 +349,67 @@ img.addEventListener("mousemove",(e)=>{
 
 const rect=img.getBoundingClientRect();
 
-const x=e.clientX-rect.left;
-const y=e.clientY-rect.top;
+const x=(e.clientX-rect.left)/rect.width;
+const y=(e.clientY-rect.top)/rect.height;
 
-const centerX=rect.width/2;
-const centerY=rect.height/2;
-
-const rotateX=((y-centerY)/10)*-1;
-const rotateY=((x-centerX)/10);
+const rotateX=(y-0.5)*-12;
+const rotateY=(x-0.5)*12;
 
 img.style.transform=
-`perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+`perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.06)`;
 
 });
 
 img.addEventListener("mouseleave",()=>{
 
-img.style.transform="perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)";
+img.style.transform="perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)";
 
 });
+
+});
+
+/* MAGNETIC BUTTONS */
+const buttons=document.querySelectorAll(".button");
+
+buttons.forEach(btn=>{
+
+btn.addEventListener("mousemove",(e)=>{
+
+const rect=btn.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+const y=e.clientY-rect.top;
+
+const moveX=(x-rect.width/2)/10;
+const moveY=(y-rect.height/2)/10;
+
+btn.style.transform=`translate(${moveX}px,${moveY}px) scale(1.05)`;
+
+});
+
+btn.addEventListener("mouseleave",()=>{
+
+btn.style.transform="translate(0,0) scale(1)";
+
+});
+
+});
+
+/* LOADING SCREEN */
+window.addEventListener("load",()=>{
+
+setTimeout(()=>{
+
+document.getElementById("loader").style.opacity="0";
+document.getElementById("loader").style.transition="1s ease";
+
+setTimeout(()=>{
+
+document.getElementById("loader").style.display="none";
+
+},1000);
+
+},2000);
 
 });
 
