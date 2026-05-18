@@ -12,6 +12,7 @@ color:white;
 font-family:Arial;
 text-align:center;
 padding:40px;
+padding-top:90px; /* ✅ FIX: prevents overlap with top bar */
 }
 
 /* =========================
@@ -34,8 +35,10 @@ pointer-events:none;
 ========================= */
 
 .top-bar{
-position:sticky;
+position:fixed;   /* changed from sticky → more stable */
 top:0;
+left:0;
+width:100%;
 background:#0a0a0a;
 padding:12px;
 border-bottom:1px solid #333;
@@ -48,12 +51,12 @@ opacity:0.8;
 }
 
 /* =========================
-   🔥 SMALLER PAGE TITLE (UPDATED)
+   🔥 TITLE FIXED POSITION
 ========================= */
 
 h1{
-font-size:34px;   /* <-- smaller like you wanted */
-margin-bottom:10px;
+font-size:34px;
+margin:30px 0 10px 0;   /* ✅ pushes it down nicely */
 letter-spacing:2px;
 opacity:0.95;
 }
@@ -162,7 +165,7 @@ background:#333;
 <div id="timer">Loading timer...</div>
 </div>
 
-<!-- SMALLER TITLE NOW -->
+<!-- TITLE -->
 <h1>SXC60S MEDIA INFO</h1>
 
 <!-- BOOK -->
