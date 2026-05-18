@@ -15,183 +15,118 @@ text-align:center;
 animation:fadeIn 1.5s;
 }
 
-/* PAGE FADE IN */
-
+/* FADE IN */
 @keyframes fadeIn{
-
-from{
-opacity:0;
-}
-
-to{
-opacity:1;
-}
-
+from{opacity:0;}
+to{opacity:1;}
 }
 
 /* HERO SECTION */
-
 header{
-
 height:100vh;
-
 background-image:url("images/hero.jpg");
 background-position:center;
 background-size:100%;
-
 display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-
 animation:zoomHero 8s ease-in-out infinite alternate;
-
 }
 
 @keyframes zoomHero{
-
-from{
-background-size:100%;
+from{background-size:100%;}
+to{background-size:110%;}
 }
 
-to{
-background-size:110%;
-}
-
-}
-
-/* TITLE */
-
+/* TITLE (SCRAMBLE) */
 h1{
-
 font-size:120px;
 margin:0;
-
-text-shadow:
-0 0 10px white,
-0 0 20px white;
-
+text-shadow:0 0 10px white, 0 0 20px white;
 }
 
-/* SUBTITLE */
-
 p{
-
 font-size:25px;
-
 }
 
 /* BUTTONS */
-
 .button{
-
 display:inline-block;
-
 padding:20px 45px;
-
 background:white;
 color:black;
-
 border-radius:15px;
-
 text-decoration:none;
-
 font-weight:bold;
 font-size:22px;
-
 margin:15px;
-
 transition:.3s;
-
 }
 
 .button:hover{
-
 transform:scale(1.08);
-
 box-shadow:0 0 25px white;
-
 }
 
 /* GALLERY */
-
 .gallery{
-
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
 gap:25px;
-
 padding:60px;
-
 }
 
 .gallery img{
-
 width:320px;
 border-radius:15px;
-
 transition:.4s;
-
 box-shadow:0 0 20px rgba(255,255,255,.15);
-
 }
 
 .gallery img:hover{
-
-transform:
-translateY(-10px)
-scale(1.05);
-
+transform:translateY(-10px) scale(1.05);
 box-shadow:0 0 30px rgba(255,255,255,.4);
-
 }
 
 /* STATS */
-
 .stats{
-
 display:flex;
 justify-content:center;
 flex-wrap:wrap;
 gap:25px;
 padding:50px;
-
 }
 
 .stat-box{
-
 background:#222;
 padding:30px;
 border-radius:15px;
 width:220px;
-
 box-shadow:0 0 20px rgba(255,255,255,.15);
-
 transition:.3s;
-
 }
 
 .stat-box:hover{
-
 transform:translateY(-8px);
-
 }
 
 .stat-box h2{
-
 font-size:50px;
 margin:0;
-
-text-shadow:
-0 0 10px white;
-
+text-shadow:0 0 10px white;
 }
 
 .stat-box p{
-
 font-size:20px;
+}
 
+/* TITLE (scramble fix) */
+#title{
+font-size:120px;
+margin:0;
+text-shadow:0 0 10px white, 0 0 20px white;
 }
 
 </style>
@@ -202,7 +137,7 @@ font-size:20px;
 
 <header>
 
-<h1>SXC60S MEDIA</h1>
+<h1 id="title">SXC60S MEDIA</h1>
 
 <p>
 Car Photography • Drone Shots • Cinematic Edits
@@ -221,9 +156,7 @@ Car Photography • Drone Shots • Cinematic Edits
 <div class="gallery">
 
 <img src="images/s60.jpg">
-
 <img src="images/xc60.jpg">
-
 <img src="images/drone.jpg">
 
 </div>
@@ -232,32 +165,23 @@ Car Photography • Drone Shots • Cinematic Edits
 <div class="stats">
 
 <div class="stat-box">
-
 <h2 class="counter" data-target="150">0</h2>
-
 <p>Photos Taken</p>
-
 </div>
 
 <div class="stat-box">
-
 <h2 class="counter" data-target="25">0</h2>
-
 <p>Edits Created</p>
-
 </div>
 
 <div class="stat-box">
-
 <h2 class="counter" data-target="10">0</h2>
-
 <p>Shoots</p>
-
 </div>
 
 </div>
 
-
+<!-- S T A T S   A N I M A T I O N -->
 <script>
 
 const counters=document.querySelectorAll('.counter');
@@ -269,23 +193,14 @@ counter.innerText='0';
 const updateCounter=()=>{
 
 const target=+counter.getAttribute('data-target');
-
 const c=+counter.innerText;
-
 const increment=target/80;
 
 if(c<target){
-
 counter.innerText=`${Math.ceil(c+increment)}`;
-
 setTimeout(updateCounter,20);
-
-}
-
-else{
-
+}else{
 counter.innerText=target+"+";
-
 }
 
 };
@@ -293,6 +208,45 @@ counter.innerText=target+"+";
 updateCounter();
 
 });
+
+</script>
+
+<!-- SCRAMBLE TITLE -->
+<script>
+
+const title = document.getElementById("title");
+
+const finalText = "SXC60S MEDIA";
+const chars = "!@#$%^&*ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+let frame = 0;
+
+function scramble(){
+
+let output = "";
+
+for(let i = 0; i < finalText.length; i++){
+
+if(i < frame){
+output += finalText[i];
+}else{
+output += chars[Math.floor(Math.random() * chars.length)];
+}
+
+}
+
+title.innerText = output;
+
+if(frame <= finalText.length){
+frame++;
+setTimeout(scramble, 80);
+}else{
+title.innerText = finalText;
+}
+
+}
+
+scramble();
 
 </script>
 
