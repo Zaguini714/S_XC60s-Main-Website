@@ -7,7 +7,7 @@
 
 body{
 margin:0;
-background:#0f0f0f;
+background:#111;
 color:white;
 font-family:Arial;
 text-align:center;
@@ -25,7 +25,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:radial-gradient(circle at center, rgba(255,255,255,0.08), transparent 60%);
+background:radial-gradient(circle at center, rgba(255,255,255,0.07), transparent 60%);
 pointer-events:none;
 }
 
@@ -38,7 +38,7 @@ position:sticky;
 top:0;
 background:#0a0a0a;
 padding:12px;
-border-bottom:1px solid #222;
+border-bottom:1px solid #333;
 z-index:10;
 }
 
@@ -58,75 +58,7 @@ letter-spacing:2px;
 }
 
 /* =========================
-   HERO BOX
-========================= */
-
-.hero-box{
-background:#151515;
-padding:40px;
-margin:25px auto;
-width:85%;
-max-width:900px;
-border-radius:18px;
-
-box-shadow:0 0 30px rgba(255,255,255,0.05);
-}
-
-/* =========================
-   BIG MEDIA BUTTON (UPDATED)
-========================= */
-
-.media-enter-btn{
-display:inline-block;
-
-padding:35px 90px;
-background:white;
-color:black;
-
-border-radius:18px;
-
-text-decoration:none;
-font-weight:bold;
-font-size:34px;
-letter-spacing:3px;
-
-margin:20px 0;
-
-transition:0.3s;
-
-box-shadow:0 0 35px rgba(255,255,255,0.25);
-}
-
-.media-enter-btn:hover{
-transform:scale(1.08);
-box-shadow:0 0 60px rgba(255,255,255,0.35);
-opacity:0.9;
-}
-
-/* =========================
-   SMALL BUTTONS
-========================= */
-
-.button{
-display:inline-block;
-padding:14px 25px;
-background:#fff;
-color:#000;
-text-decoration:none;
-border-radius:10px;
-font-weight:bold;
-margin:8px;
-
-transition:0.3s;
-}
-
-.button:hover{
-transform:scale(1.05);
-opacity:0.85;
-}
-
-/* =========================
-   SECTIONS
+   BOXES
 ========================= */
 
 .box{
@@ -143,6 +75,59 @@ transition:0.3s;
 .box:hover{
 transform:translateY(-6px);
 box-shadow:0 10px 30px rgba(255,255,255,0.06);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.button{
+display:inline-block;
+padding:14px 25px;
+background:white;
+color:black;
+text-decoration:none;
+border-radius:10px;
+font-weight:bold;
+margin:8px;
+
+transition:0.3s;
+}
+
+.button:hover{
+transform:scale(1.05);
+opacity:0.85;
+}
+
+/* =========================
+   BIG MEDIA BUTTON
+========================= */
+
+.media-enter-btn{
+display:inline-block;
+
+padding:30px 75px;
+background:white;
+color:black;
+
+border-radius:16px;
+
+text-decoration:none;
+font-weight:bold;
+font-size:30px;
+letter-spacing:2px;
+
+margin:20px 0;
+
+transition:0.3s;
+
+box-shadow:0 0 35px rgba(255,255,255,0.25);
+}
+
+.media-enter-btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 60px rgba(255,255,255,0.35);
+opacity:0.9;
 }
 
 /* =========================
@@ -175,68 +160,133 @@ background:#333;
 <div id="timer">Loading timer...</div>
 </div>
 
-<h1>SXC60S MEDIA</h1>
+<h1>SXC60S Media Info</h1>
 
-<!-- HERO -->
-<div class="hero-box">
+<!-- BOOK -->
+<div class="box">
 
-<p style="opacity:0.8; font-size:18px;">
-Car Photography • Drone Work • Cinematic Edits • Car Culture
+<h2>📩 Book a Shoot</h2>
+
+<p>
+DM me for photos, videos, drone footage, detailing, or custom requests.
+Everything is built around your vision.
 </p>
 
-<!-- 🚗 BIG MAIN BUTTON -->
+<a class="button" href="https://instagram.com/YOURUSERNAME" target="_blank">
+Book Now
+</a>
+
+<br><br>
+
 <a class="media-enter-btn" href="index.html">
 ENTER SXC60S MEDIA
 </a>
-
-<br>
-
-<!-- SECONDARY BUTTONS -->
-<a class="button" href="index.html">Portfolio</a>
-<a class="button" href="events.html">Events</a>
-<a class="button" href="#pricing">Pricing</a>
 
 </div>
 
 <!-- ABOUT -->
 <div class="box">
 
-<h2>About SXC60S Media</h2>
+<h2>About Me</h2>
 
 <p>
-I’m Zach, building SXC60S Media around cars, photography, edits, and automotive culture.
-Focused on clean cinematic visuals, car shoots, and creative edits.
+Hi, I'm Zach and I'm building SXC60S Media around cars, photography, edits, and car culture.
+I focus on clean cinematic visuals, car shoots, and creative edits.
 </p>
 
 </div>
 
-<!-- EVENTS SECTION -->
+<!-- PHOTO -->
 <div class="box">
 
-<h2>🚗 Events Page</h2>
+<h2>📷 Photo Packages</h2>
 
 <p>
-Check out car meets, shoots, and upcoming community events.
+Quick Shot — $15 (3 photos)<br>
+Starter — $25 (5 photos)<br>
+Standard — $45 (10 photos)<br>
+Premium — $60 (15 photos)<br>
+Showcase — $75 (20 photos + full showcase)
 </p>
 
-<a class="button" href="events.html">View Events</a>
-<a class="button" href="events.html#book">Book Event Spot</a>
+</div>
+
+<!-- VIDEO (ORIGINAL CLEAN VERSION) -->
+<div class="box">
+
+<h2>🎬 Video Services</h2>
+
+<p>
+Tunnel runs and motion clips<br>
+Drone footage and scenic pulls<br>
+Meet coverage and community shoots
+</p>
 
 </div>
 
-<!-- PRICING -->
-<div class="box" id="pricing">
+<!-- DRONE -->
+<div class="box">
 
-<h2>📷 Pricing Overview</h2>
+<h2>🚁 Drone Packages</h2>
 
-<p>Simple packages for shoots and edits</p>
+<p>
+Starter — $15 (3 aerial photos)<br>
+Air Package — $25 (5 aerial photos)<br>
+Combo — $35 (Drone + photos)
+</p>
 
-<div class="info-card">5 Photos — $25</div>
-<div class="info-card">10 Photos — $45</div>
-<div class="info-card">13 Photos + Drone — $50 (SALE)</div>
-<div class="info-card">Custom Video Edits — Depends on request</div>
+<br>
+
+<p style="color:lime; font-weight:bold;">
+🔥 ON SALE 🔥<br>
+13 photos + 5 aerial shots + custom edit — $50
+</p>
 
 </div>
+
+<!-- FUTURE -->
+<div class="box">
+
+<h2>Future Plans</h2>
+
+<p>
+• Car meets<br>
+• Community page<br>
+• Volvo content<br>
+• Build showcases<br>
+• More edits
+</p>
+
+</div>
+
+<script>
+
+/* TIMER */
+let startTime = localStorage.getItem("sxc60s_start");
+
+if(!startTime){
+startTime = Date.now();
+localStorage.setItem("sxc60s_start", startTime);
+}
+
+function updateTimer(){
+
+const now = Date.now();
+const diff = now - startTime;
+
+const days = Math.floor(diff / (1000*60*60*24));
+const hours = Math.floor((diff / (1000*60*60)) % 24);
+const minutes = Math.floor((diff / (1000*60)) % 60);
+
+document.getElementById("timer").innerText =
+`SXC60S LIVE FOR: ${days}d ${hours}h ${minutes}m`;
+
+}
+
+setInterval(updateTimer, 1000);
+updateTimer();
+
+</script>
 
 </body>
 </html>
