@@ -1,28 +1,61 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="S_XC60s is a cinematic Volvo media brand built around modern Volvo culture, rollers, drone footage, photography, meets, and builds."
-    />
-    <meta property="og:title" content="S_XC60s | Built for Volvo Culture" />
-    <meta
-      property="og:description"
-      content="Cinematic Volvo photography, featured edits, build showcases, meets, and community highlights."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/s60l-hero.jpg" />
-    <title>S_XC60s | Built for Volvo Culture</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="opening-animation" aria-hidden="true">
-      <div class="opening-line"></div>
-      <div class="opening-logo">S_XC60s</div>
-      <div class="opening-tag">Built for Volvo Culture.</div>
-    </div>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>S_XC60s | Built for Volvo Culture</title>
+
+<style>
+
+/* BASE */
+body{
+  margin:0;
+  background:#0f0f0f;
+  color:white;
+  font-family:Arial;
+}
+
+/* OPENING SCREEN */
+.opening-animation{
+  position:fixed;
+  inset:0;
+  background:#0b0b0b;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  animation:fadeOut 2s ease 2s forwards;
+}
+
+.opening-logo{
+  font-size:28px;
+  letter-spacing:4px;
+}
+
+.opening-tag{
+  font-size:12px;
+  opacity:0.6;
+  margin-top:8px;
+}
+
+@keyframes fadeOut{
+  to{
+    opacity:0;
+    visibility:hidden;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="opening-animation">
+  <div class="opening-logo">S_XC60s</div>
+  <div class="opening-tag">Built for Volvo Culture.</div>
+</div>
 
     <header class="site-header" aria-label="Primary navigation">
       <a class="brand-mark" href="#top" aria-label="S_XC60s home">
