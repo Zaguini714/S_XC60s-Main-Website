@@ -11,8 +11,10 @@ background:#111;
 color:white;
 font-family:Arial;
 text-align:center;
+
+/* ✅ FIX: proper spacing for fixed top bar */
 padding:40px;
-padding-top:90px; /* ✅ FIX: prevents overlap with top bar */
+padding-top:120px;
 }
 
 /* =========================
@@ -35,7 +37,7 @@ pointer-events:none;
 ========================= */
 
 .top-bar{
-position:fixed;   /* changed from sticky → more stable */
+position:fixed;
 top:0;
 left:0;
 width:100%;
@@ -51,12 +53,12 @@ opacity:0.8;
 }
 
 /* =========================
-   🔥 TITLE FIXED POSITION
+   TITLE (FIXED PROPERLY)
 ========================= */
 
 h1{
 font-size:34px;
-margin:30px 0 10px 0;   /* ✅ pushes it down nicely */
+margin:60px 0 10px 0; /* ✅ pushes it BELOW the fixed bar cleanly */
 letter-spacing:2px;
 opacity:0.95;
 }
